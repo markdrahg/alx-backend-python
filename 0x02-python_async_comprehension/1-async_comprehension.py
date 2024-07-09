@@ -7,7 +7,7 @@ import asyncio
 from typing import List
 import importlib.util
 
-# Dynamically import async_generator from '0-async_generator'
+
 spec = importlib.util.spec_from_file_location('async_generator', '0-async_generator.py')
 async_generator = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(async_generator)
