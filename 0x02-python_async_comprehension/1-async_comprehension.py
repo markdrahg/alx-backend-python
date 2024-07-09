@@ -5,8 +5,12 @@ Module containing an asynchronous comprehension function.
 
 import asyncio
 from typing import List
-from async_generator import async_generator
+import importlib.util
 
+# Dynamically import async_generator from '0-async_generator'
+spec = importlib.util.spec_from_file_location('async_generator', '0-async_generator.py')
+async_generator = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(async_generator)
 
 async def async_comprehension() -> List[float]:
     """
@@ -15,4 +19,4 @@ async def async_comprehension() -> List[float]:
     Returns:
         A list of 10 random float numbers.
     """
-    return [i async for i in async_generator()]
+    return [i async for i in async_generator.async_generator()]
