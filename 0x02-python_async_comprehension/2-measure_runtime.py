@@ -8,8 +8,9 @@ from time import perf_counter
 from typing import List
 from importlib import import_module as using
 
-# Import async_comprehension using the specified method
+
 async_comprehension = using('1-async_comprehension').async_comprehension
+
 
 async def measure_runtime() -> float:
     '''
